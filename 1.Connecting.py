@@ -28,4 +28,30 @@ connection =  psycopg2.connection(host='localhost', database='cs350', user='stud
         mynumber INTEGER(10),
     );""")
 
- # If you're only doing one statement the ; isn't needed but will be needed for severl such as:
+ # If you're only doing one statement the ; isn't needed but will be needed for several such as:
+ cur.execute("""SELECT * FROM tablename;
+    CREATE TABLE newtable
+    (
+        car_name VARCHAR(30),
+        car_make VARCHAR(20),
+        car_model VARCHAR(10),
+    );""")
+
+ # IF you execute a bad statement using the cursor the server you will be unable to execute
+ # more statements until you 'rollback' the server
+
+ cur.execute("""SELECT FROM tablename;""")
+# Trying to do it again produces and error
+try:
+    cur.execute("""SELECT * FROM tablename;""")
+except psycopg2.InternalError as error:
+    print(error)
+
+
+# To fix this you will need to do a rollback:
+con.rollback()
+
+# Likewise any data that has been changed must be committed to persist in the database:
+con.commit()
+
+
