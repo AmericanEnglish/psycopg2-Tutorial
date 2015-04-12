@@ -70,4 +70,22 @@ cur.execute("""SELECT * FROM wallet_change WHERE name = %s""", [name])
 # please see their documentation:
 print('http://initd.org/psycopg/docs/usage.html')
 
+
+# When you have an SQL file full of preloaded statements sometimes you want to just use it
+# Without having to type it over and over. Python file handling!
+
+
+# The connection is opened
+with psycopg2.connect(info) as con:
+    #The cursor is created
+    with con.cursor() as cur:
+        # NOW TIME FOR WITH AND OPEN
+        # File is opened
+        with open('sample.sql', 'r') as newdata:
+            # File is read into the cursor
+            cur.execute(newdata.read())
+    # Cursor is closed
+# Changes commited or rolled back accordingly.
+
+
 # This will be expanded as i feel is needed
