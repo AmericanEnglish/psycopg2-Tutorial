@@ -65,3 +65,9 @@ cur.execute("""SELECT * FROM wallet_change WHERE name = %s""", (name,))
 cur.execute("""SELECT * FROM wallet_change WHERE name = %s""", [name])
 
 # Never use any other form of %, not %d, %f , none of it.
+
+# Note that psycopg2 can convert python datatypes super well in a lot of cases for examples
+# please see their documentation:
+print('http://initd.org/psycopg/docs/usage.html')
+
+# This will be expanded as i feel is needed

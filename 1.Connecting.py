@@ -55,5 +55,20 @@ con.rollback()
 con.commit()
 
 
+# There are several nice ways to create connections and cursors.the WITH statements!
+
+with psycopg2.connect(info) as con:
+    with con.cursor() as cur:
+        cur.execute("""SELECT * FROM  tablename;""")
+
+# The above syntax introduces a lot of automation. First using with, with, the connection obj
+#   When the statements are done, the connection is closed and all changes are commited or rolled
+#   back as needed. 
+# Using with, with, the cursor allows the cursor to be automatically closed after the the code is
+#   done and the cursor will become unusable.
+
+
+
 # In the next section i will cover how to use use this tool for data input, retrevial,
 # and python combinations
+
