@@ -55,3 +55,5 @@ con.rollback()
 con.commit()
 
 
+# In the next section i will cover how to use use this tool for data input, retrevial,
+# and python combinations
