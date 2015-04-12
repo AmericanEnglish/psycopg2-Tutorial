@@ -25,7 +25,7 @@ connection =  psycopg2.connection(host='localhost', database='cs350', user='stud
  cur.execute("""CREATE TABLE tablename
     (
         name CHAR(20),
-        mynumber INTEGER(10),
+        mynumber INTEGER(10)
     );""")
 
  # If you're only doing one statement the ; isn't needed but will be needed for several such as:
@@ -34,7 +34,7 @@ connection =  psycopg2.connection(host='localhost', database='cs350', user='stud
     (
         car_name VARCHAR(30),
         car_make VARCHAR(20),
-        car_model VARCHAR(10),
+        car_model VARCHAR(10)
     );""")
 
  # IF you execute a bad statement using the cursor the server you will be unable to execute
