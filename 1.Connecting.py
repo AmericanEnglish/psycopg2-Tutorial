@@ -11,7 +11,7 @@ connection.close()
 
 
 # Using a standard variable style input
-connection =  psycopg2.connection(host='localhost', database='cs350', user='student', password='password')
+connection =  psycopg2.connect(host='localhost', database='cs350', user='student', password='password')
 
  # These two ways create connections to the database. Either way is approriate. 
 
